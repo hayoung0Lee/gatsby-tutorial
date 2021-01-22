@@ -39,7 +39,7 @@ const processPageQueries = async (queryIds, {
 
 - 브라우저에서는 어떻게 Page의 데이터를 보여주는가?
     - 일단 common.js 파일이 있다. 
-        <img src="../gatsby-tutorial/img/1.png">
+        <img src="./img/1.png">
     
     - `localhost:8080/about` 페이지를 요청하면 아래와 같은 `about.html`을 반환한다
   
@@ -47,3 +47,34 @@ const processPageQueries = async (queryIds, {
     <!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="note" content="environment=development"/><script src="/socket.io/socket.io.js"></script></head><body><div id="___gatsby"></div><script src="/polyfill.js" nomodule=""></script><script src="/commons.js"></script></body></html>
     ```
 
+
+## Layout Componenet 사용하기
+필요하면 써보는걸로~
+
+
+## Linking betwen pages
+- Next.Js 도 글코 Link 가 어떻게 되는지 잘 이해가 안된다. 
+- [Gatsby Link API docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/#:~:text=Gatsby's%20component%20enables%20linking,user%20navigates%20with%20this%20component.&text=All%20props%20are%20passed%20through%20to%20%40reach%2Frouter's%20Link%20component.)
+  - Gatsby의 `<Link>` 컴포넌트는 internal pages(내가 만드는 페이지)를 링크하고, preloading이라는 걸 한다. 
+  - `preloading`이란? 리소스를 prefetch 위한 것으로 유저가 컴포넌트로 이동할때 이미 fetch 되어있도록. 
+  - [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)(요소가 화면에 보이는지를 비동기적으로 볼수 있는 API, lazyloading 같은거할때 쓰인다!) 를 이용해서 low-priority request를 fetch한다. 즉 Link가 화면에 보일때 prefetch한다. 
+  - `onMouseOver`는 high-priority request를 trigger하도록 했다. 왜냐하면 사용자가 해당 리소스로 접근할 확률이 높기때문이다. 
+- `router`: https://reach.tech/router/api/Link
+
+
+## Build
+```
+gatsby build
+```
+
+build 하면 public 폴더내에 관련 파일이 쭉 생긴다. public 폴더내로 이동한 후 http-server를 통해서 빌드가 된 것을 확인할 수 있다. 
+
+```
+http-server .
+```
+
+- 요청했을때 화면
+  
+<img src="./img/2.png">
+
+화면을 보면 contact 파일관련해서도 이미 뭔가부르고 있음을 볼 수 있다. 실제로 Link 위에 마우스를 대는 순간 요청이 더 발생하는 것도 확인할 수 있다(prefetch 해오는 내용이 다른 것 같다)
