@@ -118,3 +118,21 @@ http-server .
   - Plugin설치를 끝내기 위해서는 `gatsby-config.js파일에 꼭 써줘라`. 
   
 
+## [Data in Gatsby](https://www.gatsbyjs.com/docs/tutorial/part-four/)
+- 아마 여기가 멘탈 뽀가각 되는 챕터가 아닐까 싶구만.
+- Gatsby의 Data Layer는 Gatsby의 아주 멋진 특징이고, 이걸 통해서 Markdown, Wordpress, headless CMSs, 그리고 다른 data source를 통해서 사이트를 만들 수 있다. 
+- Gatsby의 Data Layersms `GraphQL`을 이용해서 동작한다: https://www.howtographql.com/
+- Website는 네가지로 구성된다
+  - HTML
+  - CSS
+  - JS
+  - 그리고 `Data`
+    - Gatsby의 `Data`란? __`React Component 밖의 모든 것(everything that lives outside of a React Component`__
+    - Gatsby의 `Data Layer`란? __`Gatsby’s data layer lets you pull data from these (and any other source) directly into your components`__
+
+### Gatsby의 데이터 레이어는 어떻게 GraphQL로 컴포넌트에 데이터를 가져오나?
+- React 컴포넌트에 데이터를 가져오는 방법은 여러가지다
+
+- [Page query 동작 원리](https://www.gatsbyjs.com/docs/how-to/querying-data/page-query/)
+
+- Static Query: layout 컴포넌트처럼 페이지가 아닌 컴포넌트에서 데이터를 가져오는 API
