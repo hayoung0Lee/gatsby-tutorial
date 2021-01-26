@@ -7,7 +7,12 @@ export default function Home() {
     <>
       <Header title="This is Home Page" />
       <div>Hello world!</div>
-      <Link to="/contact/">Contact</Link>
+      <div>
+        <Link to="/about/">About</Link>
+      </div>
+      <div>
+        <Link to="/contact/">Contact</Link>
+      </div>
     </>
   )
 }
