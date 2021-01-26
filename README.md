@@ -47,11 +47,6 @@ const processPageQueries = async (queryIds, {
     <!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="note" content="environment=development"/><script src="/socket.io/socket.io.js"></script></head><body><div id="___gatsby"></div><script src="/polyfill.js" nomodule=""></script><script src="/commons.js"></script></body></html>
     ```
 
-
-## Layout Componenet 사용하기
-필요하면 써보는걸로~
-
-
 ## Linking betwen pages
 - Next.Js 도 글코 Link 가 어떻게 되는지 잘 이해가 안된다. 
 - [Gatsby Link API docs](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/#:~:text=Gatsby's%20component%20enables%20linking,user%20navigates%20with%20this%20component.&text=All%20props%20are%20passed%20through%20to%20%40reach%2Frouter's%20Link%20component.)
@@ -78,3 +73,48 @@ http-server .
 <img src="./img/2.png">
 
 화면을 보면 contact 파일관련해서도 이미 뭔가부르고 있음을 볼 수 있다. 실제로 Link 위에 마우스를 대는 순간 요청이 더 발생하는 것도 확인할 수 있다(prefetch 해오는 내용이 다른 것 같다)
+
+
+<!-- TODO: https://www.gatsbyjs.com/docs/tutorial/part-two/ 
+
+(개념쪽도 잘되있음)https://www.gatsbyjs.com/docs/conceptual/react-hydration/
+(gatsby and typescript)https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/
+ -->
+
+## Styling
+```
+├── package.json
+├── src
+│   └── pages
+│       └── index.js
+│   └── styles
+│       └── global.css
+```
+
+- `gatsby-browser.js`: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-browser/
+
+  ```
+  ├── package.json
+  ├── src
+  │   └── pages
+  │       └── index.js
+  │   └── styles
+  │       └── global.css
+  ├── gatsby-browser.js
+  ```
+
+- `css-modules` 가 default: https://github.com/css-modules/css-modules
+  - .module.css 로 끝나야 gatsby 에서 css module로 인식된다
+
+
+## Layout Componenet 사용하기
+- [docs 참고](https://www.gatsbyjs.com/docs/tutorial/part-three/)
+- Gatsby의 Plugin 이란?
+  - `Gatsby plugins` are JavaScript packages that help add functionality to a Gatsby site.
+  - Gatsby is designed to be extensible, which means plugins are able to extend and modify just about everything Gatsby does
+  - [Gatsby Plugin library](https://www.gatsbyjs.com/plugins/)
+  - Plugin은 Node.js 패키지중 Gatsby API를 따르는 것이다. `gatsby-config.js` 파일은 플러그인 리스트를 받는다. 어떤 플러그인은 이름만 써도 되고, 어떤 것들은 옵션들이 필요하다. 
+  - `npm으로 플러그인을 설치한다고 Gatsby 사이트에서 바로 실행되는 것은 아니다` WOW
+  - Plugin설치를 끝내기 위해서는 `gatsby-config.js파일에 꼭 써줘라`. 
+  
+
