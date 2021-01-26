@@ -170,3 +170,7 @@ http-server .
 ```
 The web app manifest is a simple JSON file that tells the browser about your web application and how it should behave when ‘installed’ on the user’s mobile device or desktop.
 ```
+
+
+## 후기
+Gatsby 튜토리얼을 처음 다 따라해봤는데, 완벽히 이해가 된건 아니지만 어떻게 되고 있는건지 이해하기 좋았다. 실제 서비스를 위해서 개발하다보면 더 깊이 있게 이해하지 않을까 싶다!
