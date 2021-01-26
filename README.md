@@ -136,3 +136,37 @@ http-server .
 - [Page query 동작 원리](https://www.gatsbyjs.com/docs/how-to/querying-data/page-query/)
 
 - Static Query: layout 컴포넌트처럼 페이지가 아닌 컴포넌트에서 데이터를 가져오는 API
+
+- Page에서만 page query가 동작한다. Layout같은 non-page componenet는 static query를 사용해야한다
+  - `gatsby-transformer-remark`: markdown 파일을 transform 하는 플러그인 
+
+
+### Source plugins
+- gatsby-source-filesystem: 파일에 대한 정보를 가져오는 플러그인
+- transform plugins: 파일내의 내용에 대해 query 할 수 있도록 하는 플러그인
+  - gatsby-transformer-remark
+
+### Programmatically create pages from data
+- `slug`란? A ‘slug’ is the unique identifying part of a web address, such as the /docs/tutorial/part-seven part of the page https://www.gatsbyjs.com/docs/tutorial/part-seven/
+
+- 새로운 페이지를 만드는건 두단계로 일어난다
+  - Generate the "path" or "slug" for the page
+  - Create the page
+- Markdown 페이지 생성을 위해서는 두개지 Gatsby API가 필요하다
+  - onCreateNoe
+  - createPages
+
+- 어려워서 다시한번 보기: https://www.gatsbyjs.com/docs/tutorial/part-seven/
+
+
+## Preparing a Site to Go Live
+- [배포하기 전에 다 챙길것](https://www.gatsbyjs.com/docs/tutorial/part-eight/) 
+- Audit with Lighthouse
+<img src="./img/3.png">
+
+이렇게 SEO등을 검사해서 올리면 된다!!
+
+- PWA의 Manifest파일이란?
+```
+The web app manifest is a simple JSON file that tells the browser about your web application and how it should behave when ‘installed’ on the user’s mobile device or desktop.
+```
